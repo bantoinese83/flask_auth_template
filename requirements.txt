@@ -1,0 +1,6 @@
+wtforms~=3.1.2
+requests~=2.32.3
+flask~=3.0.3
+sqlalchemy~=2.0.32
+werkzeug~=3.0.3
+python-dotenv~=1.0.1
