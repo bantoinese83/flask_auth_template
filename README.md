@@ -1,4 +1,4 @@
-# Flask User Dashboard
+# Flask Dashboard
 
 This is a Flask-based web application that provides a user dashboard with functionalities such as profile management, avatar upload, and password change. The application uses Google Drive for storing user avatars.
 
