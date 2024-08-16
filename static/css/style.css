@@ -1,0 +1,246 @@
+/* General Styles */
+html, body {
+    height: 100%; /* Ensure the body and html take full height */
+    margin: 0; /* Remove default margin */
+
+}
+
+body {
+    font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+    font-weight: normal;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Main Content Area */
+#container {
+    flex: 1; /* Grow to fill available space */
+}
+
+/* Navbar Styles */
+.navbar {
+    border-bottom: 1px solid #333;
+}
+
+.navbar-item {
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.navbar-item:hover {
+    color: #ffdd57; /* Highlight color */
+}
+
+.navbar-burger span {
+    background-color: #fff;
+}
+
+.navbar-menu {
+    border-top: 1px solid #333;
+}
+
+/* Hero Section Styles */
+.hero.is-primary {
+    color: #fff;
+    background-color: #e5e5f7;
+    opacity: 0.9;
+    background: linear-gradient(135deg, #37373855 25%, transparent 25%) -40px 0/ 80px 80px,
+                linear-gradient(225deg, #373738 25%, transparent 25%) -40px 0/ 80px 80px,
+                linear-gradient(315deg, #37373855 25%, transparent 25%) 0px 0/ 80px 80px,
+                linear-gradient(45deg, #373738 25%, #e5e5f7 25%) 0px 0/ 80px 80px,
+                linear-gradient(135deg, #ffdd57 25%, transparent 25%) -40px 0/ 80px 80px,
+                linear-gradient(225deg, #ffdd57 25%, transparent 25%) -40px 0/ 80px 80px;
+    animation: backgroundAnimation 10s infinite alternate;
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+    }
+    100% {
+        background-position: 40px 40px, -40px -40px, 40px -40px, -40px 40px, 40px 40px, -40px -40px;
+    }
+}
+
+.hero.is-primary .hero-body {
+    padding: 4rem 1.5rem;
+}
+
+.hero.is-info {
+    background-color: #209cee;
+    color: #fff;
+}
+
+.hero-body {
+    padding: 4rem 1.5rem;
+}
+
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(0, 0, 0, 0.1), 0 0 30px rgba(0, 0, 0, 0.1);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2), 0 0 30px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.4);
+    }
+}
+
+h1.title {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(44, 43, 43, 0.2);
+    font-size: 3rem;
+
+}
+h1.title_2 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: transparent; /* Make the text color transparent */
+    text-align: center;
+    text-shadow: 2px 2px 4px rgb(24, 155, 155);
+    font-size: 3rem;
+    -webkit-text-stroke: 1px #272525; /* Add a stroke to the text */
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    color: transparent; /* Make the text color transparent */
+    text-shadow: 2px 2px 4px rgb(24, 155, 155);
+    margin-bottom: 2rem;
+    -webkit-text-stroke: 1px #272525; /* Add a stroke to the text */
+
+
+}
+
+
+/* Footer Styles */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+}
+
+.social-icons a {
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #ffdd57; /* Highlight color */
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .hero-body {
+        padding: 2rem 1rem;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+    }
+}
+
+/* Custom Animation */
+#welcome-animation {
+    margin: auto;
+    display: block;
+    width: 80px;
+    height: 80px;
+}
+
+/* Custom styles for the submit button */
+button[type="submit"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem; /* Space between icon and text */
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: #209cee;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"] .icon {
+    font-size: 1.25rem;
+}
+
+button[type="submit"]:hover {
+    background-color: #1a8cd8;
+}
+
+/* Hide the default file input */
+input[type="file"] {
+    display: none;
+}
+
+/* Style the custom file input button */
+.custom-file-upload {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: #209cee;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.custom-file-upload:hover {
+    background-color: #1a8cd8;
+}
+
+.password-strength__meter {
+    height: 5px;
+    background: #e0e0e0;
+    margin-top: 10px;
+    position: relative;
+}
+
+.password-strength__meter--fill {
+    height: 100%;
+    transition: width 0.3s;
+}
+
+.password-strength__meter--fill-1 {
+    background: red;
+}
+
+.password-strength__meter--fill-2 {
+    background: orange;
+}
+
+.password-strength__meter--fill-3 {
+    background: yellow;
+}
+
+.password-strength__meter--fill-4 {
+    background: green;
+}
+
+.is-valid {
+    color: green;
+}
+.icon.is-right {
+    z-index: 2; /* Ensure the icon is above the input field */
+    cursor: pointer; /* Ensure the cursor changes to pointer */
+}

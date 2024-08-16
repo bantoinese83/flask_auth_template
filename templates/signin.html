@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign In{% endblock %}
+{% block content %}
+    <div id="form-container" class="columns is-centered">
+        <div class="column is-half">
+            <div class="card">
+                <div class="card-content">
+                    <div id="sign-in-form" class="form-container">
+                        <form method="POST" action="{{ url_for('auth.login') }}" onsubmit="return validateSignInForm()">
+                            {{ login_form.hidden_tag() }} <!-- CSRF token for security -->
+                            <h1 class="title_2">Sign In</h1>
+                            <div class="field is-grouped is-grouped-centered">
+                                <p class="control">
+                                    <a class="button is-light" aria-label="Sign in with Google"><i
+                                            class="fa-brands fa-google-plus-g"></i></a>
+                                </p>
+                                <p class="control">
+                                    <a class="button is-light" aria-label="Sign in with Facebook"><i
+                                            class="fa-brands fa-facebook-f"></i></a>
+                                </p>
+                                <p class="control">
+                                    <a class="button is-light" aria-label="Sign in with GitHub"><i
+                                            class="fa-brands fa-github"></i></a>
+                                </p>
+                                <p class="control">
+                                    <a class="button is-light" aria-label="Sign in with LinkedIn"><i
+                                            class="fa-brands fa-linkedin-in"></i></a>
+                                </p>
+                            </div>
+                            <span>or use your email & password</span>
+                            <div class="field">
+                                <label class="label" for="email-signin">Email</label>
+                                <div class="control">
+                                    {{ login_form.email(class="input", id="email-signin", placeholder="Email", required=True, aria_required="true", aria_describedby="email-signin-error") }}
+                                </div>
+                                {% if login_form.email.errors %}
+                                    <p class="help is-danger"
+                                       id="email-signin-error">{{ login_form.email.errors[0] }}</p>
+                                {% endif %}
+                            </div>
+                            <div class="field">
+                                <label class="label" for="password-signin">Password</label>
+                                <div class="control has-icons-right">
+                                    {{ login_form.password(class="input", id="password-signin", placeholder="Password", required=True, aria_required="true", aria_describedby="password-signin-error") }}
+                                    <span class="icon is-small is-right"
+                                          onclick="togglePasswordVisibility(['password-signin'])"
+                                          style="cursor: pointer;">
+                                    <i class="fas fa-eye" id="password-icon"></i>
+                                </span>
+                                </div>
+                                {% if login_form.password.errors %}
+                                    <p class="help is-danger"
+                                       id="password-signin-error">{{ login_form.password.errors[0] }}</p>
+                                {% endif %}
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="remember_me">
+                                        Remember Me
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <a href="#">Forgot password?</a>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <button type="submit" class="button is-primary" id="signin-btn">Sign In</button>
+                                </div>
+                            </div>
+                            <div class="field has-text-centered">
+                                <a href="{{ url_for('auth.register') }}">Create an account</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

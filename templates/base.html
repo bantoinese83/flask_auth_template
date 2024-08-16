@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" onerror="handleError('Local CSS')">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{% block title %}Flask Auth Template{% endblock %}</title>
+
+    {% block head %}
+    {% endblock %}
+</head>
+
+<body>
+<header class="navbar is-dark" role="banner">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="{{ url_for('auth.dashboard') }}">
+            <div id="welcome-animation" style="width: 100px; height: 100px;"></div>
+            <!-- Lottie's animation for the logo -->
+        </a>
+        <div class="navbar-burger burger" data-target="navbarMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-start">
+        </div>
+        <div class="navbar-end">
+            <a class="navbar-item" href="{{ url_for('auth.logout') }}">
+                <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                <span>Logout</span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<section class="hero is-primary">
+    <div class="hero-body">
+        <div class="container">
+            <div class="content has-text-centered">
+                <h1 class="title">
+                    {% block hero_title %}{% endblock %}
+                </h1>
+                <h2 class="subtitle">
+                    {% block subtitle %}{% endblock %}
+                </h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container content" id="container" role="main">
+    <section class="section">
+        {% block content %}
+        {% endblock %}
+    </section>
+</div>
+
+<footer class="footer has-background-dark">
+    <div class="content has-text-centered has-text-white">
+        <div class="social-icons">
+            <a href="https://twitter.com" aria-label="Twitter" class="has-text-white"><i class="fab fa-twitter"></i></a>
+            <a href="https://facebook.com" aria-label="Facebook" class="has-text-white"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com" aria-label="Instagram" class="has-text-white"><i class="fab fa-instagram"></i></a>
+            <a href="https://linkedin.com" aria-label="LinkedIn" class="has-text-white"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p>&copy; 2023 Flask Auth Template. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
+<script src="{{ url_for('static', filename='js/app.js') }}" onerror="handleError('Local JS')"></script>
+<script src="{{ url_for('static', filename='js/lottie.js') }}" onerror="handleError('Local JS')"></script>
+<script src="{{ url_for('static', filename='js/password-strength.js') }}" onerror="handleError('Local JS')"></script>
+<script src="{{ url_for('static', filename='js/password-visibility.js') }}" onerror="handleError('Local JS')"></script>
+</body>
+
+</html>

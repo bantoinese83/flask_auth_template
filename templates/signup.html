@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign Up{% endblock %}
+{% block content %}
+    <div id="form-container" class="columns is-centered">
+        <div class="column is-half">
+            <div class="card">
+                <div class="card-content">
+                    <div id="sign-up-form" class="form-container">
+                        <form method="POST" action="{{ url_for('auth.register') }}"
+                              onsubmit="return validateSignUpForm()">
+                            {{ registration_form.hidden_tag() }} <!-- CSRF token for security -->
+                            <h1 class="title_2">Create Account</h1>
+                            <div class="field is-grouped is-grouped-centered">
+                                <p class="control">
+                                    <a class="button is-light" aria-label="Sign up with Google"><i
+                                            class="fa-brands fa-google-plus-g"></i></a>
+                                </p>
+                                <p class="control">
+                                    <a class="button is-light" aria-label="Sign up with Facebook"><i
+                                            class="fa-brands fa-facebook-f"></i></a>
+                                </p>
+                                <p class="control">
+                                    <a class="button is-light" aria-label="Sign up with GitHub"><i
+                                            class="fa-brands fa-github"></i></a>
+                                </p>
+                                <p class="control">
+                                    <a class="button is-light" aria-label="Sign up with LinkedIn"><i
+                                            class="fa-brands fa-linkedin-in"></i></a>
+                                </p>
+                            </div>
+                            <span>or use your email for registration</span>
+                            <div class="field">
+                                <label class="label" for="username">Name</label>
+                                <div class="control">
+                                    {{ registration_form.username(class="input", id="username", placeholder="Name", required=True, aria_required="true", aria_describedby="username-error") }}
+                                </div>
+                                {% if registration_form.username.errors %}
+                                    <p class="help is-danger"
+                                       id="username-error">{{ registration_form.username.errors[0] }}</p>
+                                {% endif %}
+                            </div>
+                            <div class="field">
+                                <label class="label" for="email">Email</label>
+                                <div class="control">
+                                    {{ registration_form.email(class="input", id="email", placeholder="Email", required=True, aria_required="true", aria_describedby="email-error") }}
+                                </div>
+                                {% if registration_form.email.errors %}
+                                    <p class="help is-danger"
+                                       id="email-error">{{ registration_form.email.errors[0] }}</p>
+                                {% endif %}
+                            </div>
+                            <div class="field">
+                                <label class="label" for="password">Password</label>
+                                <div class="control has-icons-right">
+                                    {{ registration_form.password(class="input", id="password", placeholder="Password", required=True, aria_required="true", aria_describedby="password-error") }}
+                                    <span class="icon is-small is-right"
+                                          onclick="togglePasswordVisibility(['password', 'confirm-password'])">
+                                    <i class="fas fa-eye" id="password-icon"></i>
+                                </span>
+                                </div>
+                                {% if registration_form.password.errors %}
+                                    <p class="help is-danger"
+                                       id="password-error">{{ registration_form.password.errors[0] }}</p>
+                                {% endif %}
+                            </div>
+                            <div class="field">
+                                <label class="label" for="confirm-password">Confirm Password</label>
+                                <div class="control has-icons-right">
+                                    {{ registration_form.confirm_password(class="input", id="confirm-password", placeholder="Confirm Password", required=True, aria_required="true", aria_describedby="confirm-password-error") }}
+                                    <span class="icon is-small is-right"
+                                          onclick="togglePasswordVisibility(['password', 'confirm-password'])">
+                                    <i class="fas fa-eye" id="confirm-password-icon"></i>
+                                </span>
+                                </div>
+                                {% if registration_form.confirm_password.errors %}
+                                    <p class="help is-danger"
+                                       id="confirm-password-error">{{ registration_form.confirm_password.errors[0] }}</p>
+                                {% endif %}
+                            </div>
+                            <div class="password-strength js-password-strength"
+                                 data-strength-labels="Bad, Weak, Good, Strong">
+                                <div class="password-strength__meter">
+                                    <div class="password-strength__meter--fill"></div>
+                                </div>
+                                <div class="password-strength__value"></div>
+                                <ul>
+                                    <li class="js-password-strength__req" data-password-req="number">At least one
+                                        number
+                                    </li>
+                                    <li class="js-password-strength__req" data-password-req="letter">At least one
+                                        letter
+                                    </li>
+                                    <li class="js-password-strength__req" data-password-req="special">At least one
+                                        special character
+                                    </li>
+                                    <li class="js-password-strength__req" data-password-req="uppercase">At least one
+                                        uppercase character
+                                    </li>
+                                    <li class="js-password-strength__req" data-password-req="length:6">At least 6
+                                        characters
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="field">
+                                <div class="control">
+                                    <button type="submit" class="button is-primary" id="signup-btn">Sign Up</button>
+                                </div>
+                            </div>
+                            <div class="field has-text-centered">
+                                <a href="{{ url_for('auth.login') }}">I already have an account!</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

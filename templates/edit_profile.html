@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <header class="dashboard-header has-background-primary has-text-white p-4">
+        <h1 class="title">Edit Profile</h1>
+    </header>
+    <main class="dashboard-main">
+        <section class="edit-profile-section card">
+            <header class="card-header">
+                <p class="card-header-title">Edit Your Profile</p>
+            </header>
+            <div class="card-content">
+                <form method="POST" action="{{ url_for('auth.edit_profile') }}">
+                    {{ form.hidden_tag() }}
+                    <div class="field">
+                        <label class="label" for="username">Username</label>
+                        <div class="control">
+                            {{ form.username(class="input") }}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="email">Email</label>
+                        <div class="control">
+                            {{ form.email(class="input") }}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="full_name">Full Name</label>
+                        <div class="control">
+                            {{ form.full_name(class="input") }}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="location">Location</label>
+                        <div class="control">
+                            {{ form.location(class="input") }}
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="bio">Bio</label>
+                        <div class="control">
+                            {{ form.bio(class="textarea") }}
+                        </div>
+                    </div>
+                    <div class="field is-grouped">
+                        <div class="control">
+                            {{ form.submit(class="button is-primary") }}
+                        </div>
+                        <div class="control">
+
+                            <a href="{{ url_for('auth.dashboard') }}" class="button is-light">
+                                <span class="icon"><i class="fas fa-times"></i></span>
+                                <span>Cancel</span>
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+{% endblock %}
