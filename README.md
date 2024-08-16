@@ -136,3 +136,6 @@ Flask_Auth_Template/
 5. Push to the branch (`git push origin feature-branch`).
 6. Open a pull request.
 
+![Screenshot](./static/images/ss.png)
+![Screenshot](./static/images/ss_3.png)
+![Screenshot](./static/images/ss_2.png)
