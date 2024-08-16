@@ -33,7 +33,7 @@ This is a Flask-based web application that provides a user dashboard with functi
 1. **Clone the repository:**
     ```sh
     git clone https://github.com/bantoinese83/flask_auth_template.git
-    cd flask-user-dashboard
+    cd flask-auth-template
     ```
 
 2. **Create and activate a virtual environment:**
